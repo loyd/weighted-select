@@ -1,0 +1,12 @@
+[package]
+name = "weighted-select"
+version = "0.1.0"
+authors = ["Paul Loyd <pavelko95@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+futures = "0.1.26"
+
+[dev-dependencies]
+quickcheck = "0.8.2"
+quickcheck_macros = "0.8.0"
