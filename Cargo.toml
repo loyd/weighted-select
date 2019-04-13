@@ -3,6 +3,8 @@ name = "weighted-select"
 version = "0.1.0"
 authors = ["Paul Loyd <pavelko95@gmail.com>"]
 edition = "2018"
+description = "futures::stream::Select with weights"
+license = "MIT"
 
 [dependencies]
 futures = "0.1.26"
