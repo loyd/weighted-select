@@ -110,6 +110,7 @@ where
             Ok(Async::NotReady) | Ok(Async::Ready(None)) => {
                 (self.prev_start_at, Ok(Async::NotReady))
             }
+            Err(err) => (self.prev_start_at, Err(err)),
             x => (cursor + 1, x),
         }
     }
