@@ -1,3 +1,24 @@
+//! An adapter for merging the output of several streams with priority.
+//!
+//! The merged stream produces items from either of the underlying streams as they become available,
+//! and the streams are polled according to priority.
+//!
+//! Example:
+//! ```
+//! # use futures::{prelude::*, stream::iter_ok};
+//! use weighted_select::{self, IncompleteSelect};
+//!
+//! let select = weighted_select::new()
+//!     .append(iter_ok::<_, ()>(vec![1u32, 1]), 1)
+//!     .append(iter_ok(vec![2, 2, 2, 2, 2]), 3)
+//!     .append(iter_ok(vec![3, 3, 3, 3]), 2)
+//!     .build();
+//!
+//! let actual = select.wait().collect::<Result<Vec<_>, _>>().unwrap();
+//!
+//! assert_eq!(actual, vec![1, 2, 2, 2, 3, 3, 1, 2, 2, 3, 3]);
+//! ```
+
 use std::marker::PhantomData;
 
 use futures::{prelude::*, stream::Fuse};

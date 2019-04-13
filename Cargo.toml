@@ -1,10 +1,14 @@
 [package]
 name = "weighted-select"
-version = "0.1.0"
-authors = ["Paul Loyd <pavelko95@gmail.com>"]
-edition = "2018"
+version = "0.1.1"
 description = "futures::stream::Select with weights"
+keywords = ["Select", "stream", "priority", "weight"]
+authors = ["Paul Loyd <pavelko95@gmail.com>"]
+repository = "https://github.com/loyd/weighted-select"
+documentation = "https://docs.rs/weighted-select/"
+readme = "README.md"
 license = "MIT"
+edition = "2018"
 
 [dependencies]
 futures = "0.1.26"
