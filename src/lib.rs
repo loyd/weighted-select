@@ -5,6 +5,11 @@ use futures::{prelude::*, stream::Fuse};
 #[cfg(test)]
 mod tests;
 
+/// An adapter for merging the output of several streams with priority.
+///
+/// The merged stream produces items from either of the underlying streams as they become available,
+/// and the streams are polled according to priority.
+#[must_use = "streams do nothing unless polled"]
 #[derive(Debug)]
 pub struct Select<N> {
     head: N,
